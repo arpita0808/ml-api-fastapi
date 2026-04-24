@@ -9,7 +9,24 @@ This project demonstrates how to deploy a trained Machine Learning model as a RE
 - Docker container support
 - Interactive Swagger UI for testing
 - Public API access using ngrok
-
+## Project Structure
+```plaintext
+ml-api-fastapi/
+│── app/
+│   ├── main.py
+│   ├── model.py
+│   ├── schema.py
+│   ├── model.pkl
+│
+│── images/
+│   ├── swagger.png
+│   ├── output.png
+│
+│── Dockerfile
+│── requirements.txt
+│── sample_request.json
+│── README.md
+```
 ## Installation
 1. Clone the repository  
 git clone https://github.com/arpita0808/ml-api-fastapi.git  
@@ -41,9 +58,14 @@ POST /predict
   "prediction": 0
 }
 
+## Prediction Meaning
+0 → Setosa  
+1 → Versicolor  
+2 → Virginica  
+
 ## Docker Setup
 Build Docker Image  
-docker build -t ml-api .  
+docker build -t ml-api  
 
 Run Docker Container  
 docker run -p 8000:8000 ml-api  
@@ -61,4 +83,10 @@ Swagger UI
 
 Prediction Output  
 ![Output](images/output.png)
+
+## How it Works
+- User sends input features via API  
+- FastAPI receives the request  
+- Model processes the input  
+- API returns prediction  
 
